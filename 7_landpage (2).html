@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keychain by AER – Modern Version</title>
+
+    <!-- FONT LUCU -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICON FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fcecff;
+        font-family: "Poppins", sans-serif;
+      }
+
+      header {
+        background: linear-gradient(180deg, #ff9de7 0%, #ffccf2 100%);
+        padding: 60px 0 80px;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        border-bottom-left-radius: 50% 20px;
+        border-bottom-right-radius: 50% 20px;
+        box-shadow: 0 10px 30px rgba(255, 129, 208, 0.4);
+      }
+
+      header h1 {
+        font-family: "Pacifico", cursive;
+        font-size: 4rem;
+        margin-bottom: 10px;
+        text-shadow: 4px 4px 0px #ff69b4, 8px 8px 15px rgba(0, 0, 0, 0.1);
+        animation: bounceTitle 3s infinite ease-in-out;
+        position: relative;
+        z-index: 2;
+      }
+
+      header p {
+        font-size: 1.3rem;
+        background: rgba(255, 255, 255, 0.4);
+        display: inline-block;
+        padding: 8px 25px;
+        border-radius: 50px;
+        backdrop-filter: blur(5px);
+        border: 2px solid #fff;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        color: #a6007c;
+        font-weight: 600;
+      }
+
+      /* ⭐ FITUR LUCU HEADER */
+      .floating-item {
+        position: absolute;
+        bottom: -50px;
+        font-size: 2rem;
+        opacity: 0.7;
+        animation: floatUp 15s linear infinite;
+        z-index: 1;
+      }
+
+      /* ⭐ NAVIGASI MEWAH & AESTETIK */
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 30px;
+        background: rgba(255, 255, 255, 0.75); /* Transparan Mewah */
+        backdrop-filter: blur(15px); /* Efek Kaca Buram */
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 50px; /* Bentuk Pill */
+        box-shadow: 0 15px 35px rgba(255, 129, 208, 0.25); /* Bayangan Halus */
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        width: fit-content;
+        margin: -35px auto 30px; /* Posisi naik sedikit ke header */
+        position: relative;
+        z-index: 100;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #a6007c;
+        font-weight: 600;
+        padding: 12px 25px;
+        border-radius: 30px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi Bouncy */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+      }
+      nav a:hover {
+        background: white;
+        color: #ff47c1;
+        box-shadow: 0 5px 20px rgba(255, 71, 193, 0.3);
+        transform: translateY(-5px) scale(1.05);
+      }
+      nav a i {
+        font-size: 18px;
+        transition: 0.3s;
+      }
+      nav a:hover i {
+        transform: rotate(20deg) scale(1.2);
+        color: #ff47c1;
+      }
+
+      /* ⭐ HERO ANIMATED BACKGROUND */
+      .hero {
+        background: url("https://i.pinimg.com/1200x/82/be/b1/82beb18579a636ccc3ca5a2da8c0eefc.jpg")
+          repeat;
+        background-size: cover;
+        animation: gerakBg 40s linear infinite;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+
+      @keyframes gerakBg {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 2000px 0;
+        }
+      }
+
+      @keyframes bounceTitle {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-400px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .hero-title {
+        font-family: "Fredoka One", cursive;
+        font-size: 70px;
+        line-height: 1.1;
+        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
+          0 0 25px rgba(255, 100, 200, 0.8);
+      }
+
+      section {
+        padding: 40px;
+        width: 90%;
+        margin: auto;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: "Fredoka One", cursive;
+        color: #cc007a;
+      }
+
+      /* ⭐ PRODUK GRID */
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      /* ⭐ CARD PRODUK */
+      .card {
+        background: #ffe6fa;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 280px;
+        max-width: 350px;
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .card img {
+        width: 100%;
+        height: 250px; /* Tinggi foto seragam */
+        object-fit: cover; /* Crop rapi agar tidak gepeng */
+        border-radius: 15px;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        font-weight: 600;
+        color: #8b0b6c;
+        margin-bottom: 10px;
+      }
+      .product-name {
+        color: #5a0a4a;
+        margin-bottom: 8px;
+      }
+
+      .btn-order {
+        background-color: #ff47c1;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: auto; /* Tombol rata bawah */
+      }
+      .btn-order:hover {
+        background-color: #ce009e;
+      }
+
+      /* ⭐ REQUEST SECTION MEWAH */
+      #request {
+        background: linear-gradient(135deg, #fff0f8 0%, #ffe3f2 100%);
+        border-radius: 40px;
+        padding: 60px 40px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(255, 129, 208, 0.15);
+        margin-bottom: 60px;
+      }
+
+      .request-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(15px);
+        padding: 40px;
+        border-radius: 30px;
+        border: 2px solid #fff;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 2;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .input-group i {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ff81d0;
+        font-size: 18px;
+        transition: 0.3s;
+        pointer-events: none;
+      }
+
+      .input-group textarea + i {
+        top: 25px;
+      }
+
+      .input-group input,
+      .input-group select,
+      .input-group textarea {
+        width: 100%;
+        padding: 15px 15px 15px 50px; /* Space for icon */
+        border-radius: 15px;
+        border: 2px solid #ffe6fa;
+        background: #fff;
+        font-family: "Poppins", sans-serif;
+        font-size: 15px;
+        transition: 0.3s;
+        outline: none;
+        color: #555;
+      }
+
+      .input-group input:focus,
+      .input-group select:focus,
+      .input-group textarea:focus {
+        border-color: #ff81d0;
+        box-shadow: 0 0 15px rgba(255, 129, 208, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .input-group input:focus + i,
+      .input-group select:focus + i,
+      .input-group textarea:focus + i {
+        color: #ce009e;
+        transform: translateY(-50%) scale(1.2);
+      }
+
+      .btn-kirim {
+        width: 100%;
+        padding: 18px;
+        border: none;
+        border-radius: 15px;
+        background: linear-gradient(45deg, #ff47c1, #ff9de7);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(255, 71, 193, 0.3);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn-kirim:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(255, 71, 193, 0.4);
+      }
+
+      .btn-kirim::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .btn-kirim:hover::after {
+        left: 100%;
+      }
+
+      /* ⭐ ABOUT SECTION REDESIGN */
+      #tentang {
+        position: relative;
+        background: linear-gradient(135deg, #ffffff 0%, #fff5fc 100%);
+        border-radius: 40px;
+        padding: 60px 50px;
+        margin: 60px auto;
+        box-shadow: 0 20px 60px rgba(255, 129, 208, 0.15);
+        overflow: hidden;
+      }
+
+      /* Dekorasi Background */
+      #tentang::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: -80px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, #ffdef6 0%, transparent 70%);
+        z-index: 0;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        position: relative;
+        z-index: 1;
+        flex-wrap: wrap;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-text h2 {
+        text-align: left;
+        font-size: 42px;
+        background: linear-gradient(45deg, #ff47c1, #a650ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 25px;
+      }
+
+      .about-desc {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #555;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 20px;
+        border-left: 5px solid #ff81d0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .about-img-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* ⭐ ABOUT PHOTO ESTETIK */
+      .about-photo {
+        width: 100%;
+        max-width: 280px; /* Ukuran lebih kecil & pas di layar */
+        border-radius: 20px;
+        border: 6px solid #fff; /* Bingkai putih dalam */
+        box-shadow: 0 0 0 4px #ff81d0,
+          /* Bingkai luar pink */ 0 10px 25px rgba(0, 0, 0, 0.2); /* Shadow mewah */
+        transition: transform 0.3s;
+      }
+      .about-photo:hover {
+        transform: scale(1.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background: #d68aff;
+        color: white;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div
+        class="floating-item"
+        style="left: 10%; animation-duration: 12s; font-size: 3rem"
+      >
+        🌸
+      </div>
+      <div
+        class="floating-item"
+        style="left: 25%; animation-duration: 18s; animation-delay: 2s"
+      >
+        ✨
+      </div>
+      <div
+        class="floating-item"
+        style="left: 70%; animation-duration: 15s; font-size: 2.5rem"
+      >
+        🎀
+      </div>
+      <div
+        class="floating-item"
+        style="left: 85%; animation-duration: 20s; animation-delay: 5s"
+      >
+        🧸
+      </div>
+      <h1>Keychain by AER</h1>
+      <p>Keychain lucu & pastel estetik ✨</p>
+    </header>
+
+    <nav>
+      <a href="#beranda"><i class="fa-solid fa-house"></i> Beranda</a>
+      <a href="#tentang"><i class="fa-solid fa-heart"></i> Tentang</a>
+      <a href="#layanan"><i class="fa-solid fa-bag-shopping"></i> Layanan</a>
+      <a href="#request"
+        ><i class="fa-solid fa-wand-magic-sparkles"></i> Request Produk</a
+      >
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="hero-title">Crafting Beauty<br />with Love ✨</div>
+    </section>
+
+    <!-- TENTANG -->
+    <section id="tentang">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Tentang Kami</h2>
+          <div class="about-desc">
+            Keychain by AER adalah brand kerajinan tangan kreatif yang dibuat
+            oleh tiga sahabat:
+            <b>Egi Oktavia</b>, <b>Revalia Nurmayanti</b>, dan
+            <b>Aula Hoviah</b>. <br /><br />
+            Kami menciptakan gantungan kunci, boneka lucu, bunga handmade, serta
+            buket estetik dari bahan craft premium dengan sentuhan cinta di
+            setiap detailnya. ✨
+          </div>
+        </div>
+        <div class="about-img-wrapper">
+          <img
+            src="https://i.pinimg.com/736x/7e/8a/3d/7e8a3d7f016a029fda8b1501c560e878.jpg"
+            class="about-photo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUK -->
+    <section id="layanan">
+      <h2>Produk Kami</h2>
+      <div class="grid">
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/736x/a7/1f/15/a71f1589df46dd304ed2c1e2971d01f0.jpg"
+          />
+          <div class="product-name"><h3>Keychain Pink Aesthetic</h3></div>
+          <div class="price">Rp 15.000</div>
+          <button class="btn-order">Pesan Sekarang</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/1200x/82/be/b1/82beb18579a636ccc3ca5a2da8c0eefc.jpg"
+          />
+          <div class="product-name"><h3>Buket Mini Pastel</h3></div>
+          <div class="price">Rp 25.000</div>
+          <button class="btn-order">Pesan Sekarang</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/736x/ca/97/7b/ca977b136cf795eac5689dd47ffec1e5.jpg"
+          />
+          <div class="product-name"><h3>Buket Handmade Aesthetic</h3></div>
+          <div class="price">Rp 45.000</div>
+          <button class="btn-order">Pesan Sekarang</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/1200x/c0/03/1f/c0031fb339ee5989bd19247df8a677f2.jpg"
+          />
+          <div class="product-name"><h3>Aksesoris Cute Craft</h3></div>
+          <div class="price">Rp 30.000</div>
+          <button class="btn-order">Pesan Sekarang</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/736x/91/65/12/916512960781a1880e9c9025b36c1528.jpg"
+          />
+          <div class="product-name"><h3>Boneka Mini Handmade</h3></div>
+          <div class="price">Rp 28.000</div>
+          <button class="btn-order">Pesan Sekarang</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/1200x/85/94/1b/85941b9237f13304570e28c8382baaf2.jpg"
+          />
+          <div class="product-name"><h3>Paket Gift Aesthetic</h3></div>
+          <div class="price">Rp 35.000</div>
+          <button class="btn-order">Pesan Sekarang</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUEST -->
+    <section id="request">
+      <h2>Request Produk Custom</h2>
+      <p
+        style="
+          text-align: center;
+          max-width: 650px;
+          margin: 0 auto 30px;
+          font-size: 17px;
+          color: #666;
+        "
+      >
+        Ingin request bentuk keychain, buket, boneka, atau craft lain yang kamu
+        mau? Isi form ini ✨
+      </p>
+
+      <div class="request-container">
+        <form>
+          <div class="input-group">
+            <input type="text" placeholder="Nama Anda" required />
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Email Anda" required />
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="input-group">
+            <select required>
+              <option value="">Pilih Jenis Produk</option>
+              <option>Keychain</option>
+              <option>Buket</option>
+              <option>Boneka Craft</option>
+              <option>Aksesoris Custom</option>
+              <option>Lainnya</option>
+            </select>
+            <i class="fa-solid fa-list"></i>
+          </div>
+          <div class="input-group">
+            <textarea
+              rows="5"
+              placeholder="Deskripsi request Anda..."
+              required
+            ></textarea>
+            <i class="fa-solid fa-pen"></i>
+          </div>
+          <button class="btn-kirim">
+            Kirim Request <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer>&copy; Keychain by AER 2025</footer>
+  </body>
+</html>
